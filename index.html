@@ -5,16 +5,49 @@
 </head>
 <body>
     <div id="app">
-        <button>E vamos de Quadrado</button>
-         <div class="box"></div>
+        <button onclick="criar()" class="botao">E vamos de Quadrado</button>
+         
     </div>
 
     <script>
-       var boxElement = document.querySelector('.box');
+       
+       var criar = function () {
+         var Cont = document.createElement('div');
+         Cont.setAttribute('class', 'box');
+         
 
-       boxElement.style.width = 100;
-       boxElement.style.height = 100;
-       boxElement.style.backgroundColor = '#f00';
+         var containerElement = document.querySelector('#app');
+         containerElement.appendChild(Cont);
+
+         Cont.setAttribute('onclick', 'newColor()');
+         var containerElement = document.querySelector('#app');
+         containerElement.appendChild(Cont);
+
+         console.log('clicou');
+       
+
+         var boxElement = document.getElementsByClassName('box');
+       
+         for (var i = 0; i < boxElement.length; i++) {         
+
+           boxElement[i].style.width = 100;
+           boxElement[i].style.height = 100;
+           boxElement[i].style.backgroundColor = '#f00';
+         }
+       }
+        
+       
+      var newColor = function () {
+        var letters = "0123456789ABCDEF";
+        var color = "#";
+        for (var i = 0; i < 6; i++) {
+         color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+        }
+        
+
+                 
 
     </script>
 </body>
