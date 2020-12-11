@@ -1,59 +1,31 @@
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>Curso Javascript</title>
-</head>
+<title>Quadrados</title>
+<style>
+.box {
+	width : 100px;
+	height : 100px;
+	position : absolute;
+}
+</style>
 <body>
-    <div id="app">
-        <button onclick="criar()" class="botao">E vamos de Quadrado</button>
-         
-    </div>
-
-    <script>
-       
-       var criar = function () {
-         var Cont = document.createElement('div');
-         Cont.setAttribute('class', 'box');
-         
-
-         var containerElement = document.querySelector('#app');
-         containerElement.appendChild(Cont);
-
-         Cont.setAttribute('onclick', 'newColor()');
-         var containerElement = document.querySelector('#app');
-         containerElement.appendChild(Cont);
-
-         console.log('clicou');
-       
-
-         var boxElement = document.getElementsByClassName('box');
-       
-         for (var i = 0; i < boxElement.length; i++) {     
-            var letters = "0123456789ABCDEF";
-            var color = "#";
-            for (var i = 0; i < 6; i++) {
-              color += letters[Math.floor(Math.random() * 16)];    
-            }
-
-           boxElement[i].style.width = 100;
-           boxElement[i].style.height = 100;
-           boxElement[i].style.backgroundColor = 'color';
-         }
-       }
-        
-       
-      var newColor = function () {
-        var letters = "0123456789ABCDEF";
-        var color = "#";
-        for (var i = 0; i < 6; i++) {
-         color += letters[Math.floor(Math.random() * 16)];
-        }
-        return color;
-        }
-        
-
-                 
-
-    </script>
+	<button onclick="criar()" class="botao">E vamos de Quadrado</button>
 </body>
+<script>
+var criar = function () {
+	var box = document.createElement('div');
+	box.setAttribute('class', 'box');
+
+	var letters = "0123456789ABCDEF";
+	var color = "#";
+	for (var j = 0; j < 6; j++) {
+		color += letters[Math.floor(Math.random() * 16)];    
+	}
+
+	box.style.top = Math.random() * (screen.height - 200);
+	box.style.left = Math.random() * (screen.width - 200);
+	box.style.backgroundColor = color;
+	
+	document.body.appendChild(box);
+}
+</script>
 </html>
